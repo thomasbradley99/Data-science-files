@@ -1,0 +1,25 @@
+#Checkpoint2
+
+
+def main():
+    print ("quadratic function a*x^2 + b*x + c")
+    
+    a = float(input("a:"))
+    b = float(input("b:"))
+    c = float(input("c:"))
+
+    r = b**2 - 4*a*c 
+    
+    if a == 0:
+        print ( "There is one solution to this quadratic equaiton " + str(-b/c))
+    
+    elif r > 0:
+        print ("Thereare two roots;" + str( (-b + ( r**(1/2) )) /(2*a) ) + " and " + str( (-b - ( r**(1/2) )) /(2*a) ) + ".")
+
+    elif r == 0:
+        print ("There is one real root;" + str( -b/2*a)+ ".")
+    
+    else:
+        print ("No real roots")
+
+main()
