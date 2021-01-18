@@ -1,0 +1,15 @@
+#Checkpoint 1
+
+import math
+
+# volume sphere = 3/4 pi* r ^3
+
+volume = input("volume of sphere in mm^3 :")
+
+volumeM = float(volume) / 1000000000
+
+radius = ((3* float(volumeM))/(4 * math.pi))**(1/3)
+
+surfaceArea = 4 * math.pi * (radius)**2
+
+print ("The radius is " + str(radius) + ", and the surface area is " + str(surfaceArea) + ".")
