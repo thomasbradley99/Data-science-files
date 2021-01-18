@@ -1,0 +1,24 @@
+import math
+import matplotlib pyplot as plt
+
+
+def set_initial(v_initial, theta):
+    vx = v_initial * math.cos(theta)
+    vy = v_initial * math.sin(theta)
+    x = 0
+    y = 0
+    return x,y,vx,vy
+
+def acceleration(vx, vy, beta):
+    ax = -(beta)*vx**2
+    ay = -(beta)*vy**2 - 9.81 
+    return ax, ay
+
+def step_forward(x, y, vx, vy, beta, delta_t):
+    
+    return x, y, vx, vy
+
+def main():
+    input (initial velocity: )
+    """    Main program to read in from terminal, do itteration, and plot out graph
+    """
