@@ -1,0 +1,46 @@
+#checkpoint 3
+
+import math
+import matplotlib.pyplot as plt  
+
+def displacement(omega_zero,gamma,t):
+    if gamma > (2*omega_zero):
+        p = math.sqrt( ((gamma**2)/4) - omega_zero)
+        b = gamma/(2*p)
+        x = ( math.exp (-(gamma*t/2)) ) * (math.cosh( p*t ) + (gamma/(2*p)) * math.sinh( p*t ))
+  
+    if gamma == (2*omega_zero):
+        x = ( math.exp (-(gamma*t/2)) ) * ( 1 + (gamma/2)*t )        
+
+    if gamma < (2*omega_zero):
+        w = math.sqrt ( omega_zero**2 - ((gamma**2)/4) )
+        x = ( math.exp (-(gamma*t/2)) ) * (math.cos(w*t) + (gamma/(2*w)) * math.sin (w*t) )
+    return x
+    
+    
+def main():
+    gamma = float(input("Gamma value : "))
+    omega_zero = float(input("Inital omega value : "))
+    maxTime = float( 5*math.pi/omega_zero )
+    
+    plot_points = 200                   # Number of point
+    increment = maxTime/plot_points     # Increment between points
+
+    t_data = []                    # lists to hold the data
+    x_data = []
+
+    for i in range(0,plot_points): # Start of loop
+        t = increment*i            # Time
+        x = displacement(omega_zero,gamma,t)    # Get displacement
+        t_data.append(t)           # Append to t list
+        x_data.append(x)           # Append to x list
+
+
+    plt.plot(t_data,x_data,"g")          # Default plot in green
+    plt.title("SHM of particle")       # Add title/lables
+    plt.xlabel("time")
+    plt.ylabel("dispplacement")
+    plt.show()                           # show the actual plot
+
+main()
+    
